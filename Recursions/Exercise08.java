@@ -5,7 +5,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Scanner;
 import java.lang.String;
 
-public class Exercise8 {
+public class Exercise08 {
     private static boolean isPalindrome(@NotNull String s) {
         if(s.charAt(0) != s.charAt(s.length() - 1))
             return false;

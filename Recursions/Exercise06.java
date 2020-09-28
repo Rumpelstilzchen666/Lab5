@@ -3,7 +3,7 @@ package Recursions;
 import java.util.Scanner;
 import java.lang.Math;
 
-public class Exercise6 {
+public class Exercise06 {
     private static boolean isDivisor(int dividend, int divider) {
         if(divider > 1) {
             if(dividend % divider == 0) {

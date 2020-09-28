@@ -2,7 +2,7 @@ package Recursions;
 
 import java.util.Scanner;
 
-public class Exercise7 {
+public class Exercise07 {
     private static void printDivisors(int dividend, int divider) {
         if(divider <= dividend) {
             if(dividend % divider == 0) {

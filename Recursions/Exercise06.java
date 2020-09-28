@@ -19,7 +19,7 @@ public class Exercise06 {
     }
 
     public static boolean isPrime(int x) {
-        return (isDivisor(x, (int) Math.floor(Math.sqrt(x))) ? false : true);
+        return (!isDivisor(x, (int) Math.floor(Math.sqrt(x))));
     }
 
     public static void main(String[] args) {

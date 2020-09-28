@@ -3,7 +3,6 @@ package Recursions;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Scanner;
-import java.lang.String;
 
 public class Exercise08 {
     private static boolean isPalindrome(@NotNull String s) {

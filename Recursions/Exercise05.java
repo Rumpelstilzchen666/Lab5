@@ -2,12 +2,12 @@ package Recursions;
 
 import java.util.Scanner;
 
-public class Exercise05 {
-    private static long sumOfDigits(long n) {
+public interface Exercise05 {
+    static long sumOfDigits(long n) {
         return n % 10 + (n > 100 ? sumOfDigits(n / 10) : n / 10);
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         long n;
         do {

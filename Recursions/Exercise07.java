@@ -2,25 +2,23 @@ package Recursions;
 
 import java.util.Scanner;
 
-public class Exercise07 {
-    private static void printDivisors(int dividend, int divider) {
-        if(divider <= dividend) {
-            if(dividend % divider == 0) {
-                System.out.print(divider + ", ");
-                printDivisors(dividend / divider, divider);
-            }
-            else {
-                printDivisors(dividend, divider + 1);
-            }
+public interface Exercise07 {
+    static String printDivisors(int dividend, int divider) {
+        if(divider < dividend) {
+            if(dividend % divider == 0)
+                return divider + ", " +
+                        printDivisors(dividend / divider, divider);
+            else
+                return printDivisors(dividend, divider + 1);
         }
+        return String.valueOf(divider);
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         int n = console.nextInt();
         while(n > 1) {
-            printDivisors(n, 2);
-            System.out.println("\b\b");
+            System.out.println(printDivisors(n, 2));
             n = console.nextInt();
         }
     }

@@ -4,8 +4,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Scanner;
 
-public class Exercise08 {
-    private static boolean isPalindrome(@NotNull String s) {
+public interface Exercise08 {
+    static boolean isPalindrome(@NotNull String s) {
         if(s.charAt(0) != s.charAt(s.length() - 1))
             return false;
         if(s.length() > 2) {
@@ -15,7 +15,7 @@ public class Exercise08 {
         return true;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         String s = console.nextLine();
         while(!s.isEmpty()) {

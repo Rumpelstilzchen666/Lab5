@@ -2,19 +2,19 @@ package Recursions;
 
 import java.util.Scanner;
 
-public interface Exercise02 {
-    static String fromAtoB(int a, int b) {
+public class Exercise02 {
+    public static String fromAtoB(long a, long b) {
         if(a != b)
             return a + ", " + fromAtoB(a + 1, b);
         return String.valueOf(a);
     }
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        int n = console.nextInt();
+        long n = console.nextLong();
         while(n > 0) {
             System.out.println(fromAtoB(1, n));
-            n = console.nextInt();
+            n = console.nextLong();
         }
     }
 }

@@ -3,8 +3,8 @@ package Recursions;
 import java.util.Scanner;
 import java.lang.Math;
 
-public interface Exercise06 {
-    private static boolean isDivisor(int dividend, int divider) {
+public class Exercise06 {
+    private static boolean isDivisor(long dividend, long divider) {
         if(divider > 1) {
             if(dividend % divider == 0) {
                 //System.out.println(dividend + " % " + divider + " = " + dividend % divider);
@@ -18,16 +18,16 @@ public interface Exercise06 {
             return false;
     }
 
-    static boolean isPrime(int x) {
+    public static boolean isPrime(long x) {
         return (!isDivisor(x, (int) Math.floor(Math.sqrt(x))));
     }
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        int n = console.nextInt();
+        long n = console.nextLong();
         while(n > 1) {
             System.out.println(isPrime(n) ? "YES" : "NO");
-            n = console.nextInt();
+            n = console.nextLong();
         }
     }
 }

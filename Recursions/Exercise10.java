@@ -3,8 +3,8 @@ package Recursions;
 import java.util.Scanner;
 import java.lang.Math;
 
-public interface Exercise10 {
-    static long invert(long n) {
+public class Exercise10 {
+    public static long invert(long n) {
         if(Math.abs(n) >= 10) {
             long temp = 1;
             while(temp <= Math.abs(n))
@@ -14,7 +14,7 @@ public interface Exercise10 {
         return n;
     }
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         long n = console.nextLong();
         while(n != 0) {

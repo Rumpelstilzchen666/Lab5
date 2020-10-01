@@ -1,11 +1,10 @@
 package Recursions;
 
 import org.jetbrains.annotations.NotNull;
-
 import java.util.Scanner;
 
-public interface Exercise08 {
-    static boolean isPalindrome(@NotNull String s) {
+public class Exercise08 {
+    public static boolean isPalindrome(@NotNull String s) {
         if(s.charAt(0) != s.charAt(s.length() - 1))
             return false;
         if(s.length() > 2) {
@@ -15,7 +14,7 @@ public interface Exercise08 {
         return true;
     }
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         String s = console.nextLine();
         while(!s.isEmpty()) {

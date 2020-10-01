@@ -2,24 +2,24 @@ package Recursions;
 
 import java.util.Scanner;
 
-public interface Exercise07 {
-    static String printDivisors(int dividend, int divider) {
+public class Exercise07 {
+    public static String getDivisors(long dividend, long divider) {
         if(divider < dividend) {
             if(dividend % divider == 0)
                 return divider + ", " +
-                        printDivisors(dividend / divider, divider);
+                        getDivisors(dividend / divider, divider);
             else
-                return printDivisors(dividend, divider + 1);
+                return getDivisors(dividend, divider + 1);
         }
-        return String.valueOf(divider);
+        return divider + ", ";
     }
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        int n = console.nextInt();
+        long n = console.nextLong();
         while(n > 1) {
-            System.out.println(printDivisors(n, 2));
-            n = console.nextInt();
+            System.out.println(getDivisors(n, 2));
+            n = console.nextLong();
         }
     }
 }

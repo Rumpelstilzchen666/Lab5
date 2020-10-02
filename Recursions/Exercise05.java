@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Exercise05 {
     public static long sumOfDigits(long n) {
+        n = Math.abs(n);
         return n % 10 + (n > 100 ? sumOfDigits(n / 10) : n / 10);
     }
 

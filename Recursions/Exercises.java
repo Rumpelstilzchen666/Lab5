@@ -112,6 +112,7 @@ public class Exercises {
                 int finalN = n, finalNInput = nInput;
                 String[] finalInputTitles = inputTitles;
                 getResult.addActionListener(f -> {
+                    boolean errorInInput = false;
                     long[] inputs = {1, 1};
                     if(finalN != 7) {
                         inputs = new long[finalNInput];
@@ -124,49 +125,40 @@ public class Exercises {
                                 JOptionPane.showMessageDialog(null,
                                         "Ошибка в пункте \"" +
                                                 finalInputTitles[k] + "\"!",
-                                        "Ошибка",
+                                        "Ошибка!",
                                         JOptionPane.ERROR_MESSAGE);
+                                errorInInput = true;
                             }
                         }
                     }
-                    switch (finalN) {
-                        //натуральные
-                        case (0) -> {
-                            StringBuilder result = new StringBuilder(
-                                    Exercise01.TriangularSequence(1,
-                                            inputs[0]));
-                            result.delete(result.length() - 2, result.length());
-                            resultLabel.setText(String.valueOf(result));
-                        }
-                        //натуральные
-                        case (1) -> resultLabel.setText(
-                                Exercise02.fromAtoB(1, inputs[0]));
-                        case (2) -> resultLabel.setText(
-                                Exercise03.fromAtoB(inputs[0], inputs[1]));
-                        case (3) -> resultLabel.setText(String.valueOf(
-                                Exercise04.nNumbersWithSum(inputs[0], inputs[1],
-                                        true)));
-                        //натуральные
-                        case (4) -> resultLabel.setText(String.valueOf(
-                                Exercise05.sumOfDigits(inputs[0])));
-                        case (5) -> resultLabel.setText(
-                                Exercise06.isPrime(inputs[0]) ? "YES" : "NO");
-                        case (6) -> resultLabel.setText(
-                                Exercise07.getDivisors(inputs[0], 2));
-                        case (7) -> {
-                            String input = inputJtf[0].getText();
-                            resultLabel.setText(
-                                    Exercise08.isPalindrome(input) ? "YES" :
-                                            "NO");
-                        }
-                        case (8) -> resultLabel.setText(String.valueOf(
-                                Exercise09.nNumbersWithN00(inputs[0],
-                                        inputs[1])));
-                        case (9) -> resultLabel.setText(
-                                String.valueOf(Exercise10.invert(inputs[0])));
-                        default -> resultLabel.setText(
-                                "Я ещё не сделал это упражнение(");
-                    }
+                    if(!errorInInput)
+                        resultLabel.setText(
+                                switch (finalN + 1) {
+                                    case (1) -> Exercise01.TriangularSequence(
+                                            inputs[0]);
+                                    case (2) -> Exercise02.from1toB(inputs[0]);
+                                    case (3) -> String.valueOf(
+                                            Exercise03.fromAtoB(inputs[0],
+                                                    inputs[1]));
+                                    case (4) -> String.valueOf(
+                                            Exercise04.nNumbersWithSum(
+                                                    inputs[0], inputs[1],
+                                                    false));
+                                    case (5) -> String.valueOf(
+                                            Exercise05.sumOfDigits(inputs[0]));
+                                    case (6) -> Exercise06.isPrime(inputs[0]);
+                                    case (7) -> Exercise07.getDivisors(
+                                            inputs[0]);
+                                    case (8) -> Exercise08.isPalindrome(
+                                            inputJtf[0].getText());
+                                    case (9) -> String.valueOf(
+                                            Exercise09.nNumbersWithN00(
+                                                    inputs[0], inputs[1]));
+                                    case (10) -> String.valueOf(
+                                            Exercise10.invert(inputs[0]));
+                                    default -> "Я ещё не сделал это упражнение(";
+                                }
+                        );
                 });
                 inputPnl[nInput].add(getResult);
                 mainPnl.add(inputPnl[nInput]);

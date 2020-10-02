@@ -3,10 +3,10 @@ package Recursions;
 import java.util.Scanner;
 
 public class Exercise03 {
-    public static String fromAtoB(long a, long b) {
+    public static StringBuilder fromAtoB(long a, long b) {
         if(a != b)
-            return a + ", " + fromAtoB((a < b ? a + 1 : a - 1), b);
-        return String.valueOf(a);
+            return fromAtoB(a, (a < b ? b - 1 : b + 1)).append(", ").append(b);
+        return new StringBuilder(String.valueOf(b));
     }
 
     public static void main(String[] args) {

@@ -4,6 +4,11 @@ import java.util.Scanner;
 import java.lang.Math;
 
 public class Exercise10 {
+    public static long easyInvert(long n) {
+        return Long.parseLong(
+                new StringBuilder(String.valueOf(n)).reverse().toString());
+    }
+
     public static long invert(long n) {
         if(Math.abs(n) >= 10) {
             long temp = 1;

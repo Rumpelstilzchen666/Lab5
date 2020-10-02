@@ -3,19 +3,16 @@ package Recursions;
 import java.util.Scanner;
 
 public class Exercise02 {
-    private static void fromAtoB(int a, int b) {
-        System.out.print(a + ", ");
-        if(a != b)
-            fromAtoB(a + 1, b);
+    public static String from1toB(long b){
+        return Exercise03.fromAtoB(1, b).toString();
     }
 
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        int n = console.nextInt();
-        while(n > 0) {
-            fromAtoB(1, n);
-            System.out.println("\b\b");
-            n = console.nextInt();
+        long b = console.nextLong();
+        while(b > 0) {
+            System.out.println(from1toB(b));
+            b = console.nextLong();
         }
     }
 }

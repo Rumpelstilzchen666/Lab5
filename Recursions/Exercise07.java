@@ -3,25 +3,29 @@ package Recursions;
 import java.util.Scanner;
 
 public class Exercise07 {
-    private static void printDivisors(int dividend, int divider) {
-        if(divider <= dividend) {
-            if(dividend % divider == 0) {
-                System.out.print(divider + ", ");
-                printDivisors(dividend / divider, divider);
-            }
-            else {
-                printDivisors(dividend, divider + 1);
-            }
+    private static StringBuilder getDivisors(long dividend, long divider) {
+        if(divider < dividend) {
+            if(dividend % divider == 0)
+                return new StringBuilder(String.valueOf(divider)).append(", ")
+                        .append(getDivisors(dividend / divider, divider));
+            else
+                return getDivisors(dividend, divider + 1);
         }
+        return new StringBuilder(String.valueOf(divider));
+    }
+
+    public static String getDivisors(long n) {
+        if(n < 2)
+            return "";
+        return getDivisors(n, 2).toString();
     }
 
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        int n = console.nextInt();
+        long n = console.nextLong();
         while(n > 1) {
-            printDivisors(n, 2);
-            System.out.println("\b\b");
-            n = console.nextInt();
+            System.out.println(getDivisors(n));
+            n = console.nextLong();
         }
     }
 }

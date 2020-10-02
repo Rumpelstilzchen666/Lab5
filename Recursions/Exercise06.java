@@ -4,13 +4,10 @@ import java.util.Scanner;
 import java.lang.Math;
 
 public class Exercise06 {
-    private static boolean isDivisor(int dividend, int divider) {
+    private static boolean isDivisor(long dividend, long divider) {
         if(divider > 1) {
-            if(dividend % divider == 0) {
-                //System.out.println(dividend + " % " + divider + " = " + dividend % divider);
-                //System.out.println(dividend + " / " + divider + " = " + dividend / divider);
+            if(dividend % divider == 0)
                 return true;
-            }
             else
                 return isDivisor(dividend, divider - 1);
         }
@@ -18,16 +15,18 @@ public class Exercise06 {
             return false;
     }
 
-    public static boolean isPrime(int x) {
-        return (!isDivisor(x, (int) Math.floor(Math.sqrt(x))));
+    public static String isPrime(long x) {
+        if(x < 2)
+            return "NO";
+        return (!isDivisor(x, (int) Math.floor(Math.sqrt(x))) ? "YES" : "NO");
     }
 
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        int n = console.nextInt();
+        long n = console.nextLong();
         while(n > 1) {
-            System.out.println(isPrime(n) ? "YES" : "NO");
-            n = console.nextInt();
+            System.out.println(isPrime(n));
+            n = console.nextLong();
         }
     }
 }

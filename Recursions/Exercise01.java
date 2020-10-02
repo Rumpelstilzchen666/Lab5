@@ -3,22 +3,30 @@ package Recursions;
 import java.util.Scanner;
 
 public class Exercise01 {
-    private static void TriangularSequence(int t, int n) {
-        for(int i = 0; i < t; i++, n--) {
+    private static StringBuilder TriangularSequence(long t, long n) {
+        StringBuilder str = new StringBuilder();
+        for(long i = 0; i < t; i++, n--) {
             if(n == 0)
-                return;
-            System.out.print(t + ", ");
+                return str;
+            str.append(t).append(", ");
         }
-        TriangularSequence(t + 1, n);
+        return str.append(TriangularSequence(t + 1, n));
+    }
+
+    public static String TriangularSequence(long n){
+        if(n <= 0)
+            return "";
+        StringBuilder result = TriangularSequence(1, n);
+        result.delete(result.length() - 2, result.length());
+        return result.toString();
     }
 
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        int n = console.nextInt();
-        while(n > 0) {
-            TriangularSequence(1, n);
-            System.out.println("\b\b");
-            n = console.nextInt();
+        long n = console.nextLong();
+        while(n != 0) {
+            System.out.println(TriangularSequence(n));
+            n = console.nextLong();
         }
     }
 }

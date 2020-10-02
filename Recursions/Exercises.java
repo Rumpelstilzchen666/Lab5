@@ -14,7 +14,8 @@ public class Exercises {
         try {
             reader =
                     new BufferedReader(
-                            new FileReader(new File("").getAbsolutePath() + "\\src\\Recursions\\Exercises.txt"));
+                            new FileReader(new File("").getAbsolutePath() +
+                                    "\\src\\Recursions\\Exercises.txt"));
             reader.mark(32000);
             String line1 = reader.readLine();
             while(line1 != null) {
